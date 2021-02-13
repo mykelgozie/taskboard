@@ -1,0 +1,43 @@
+<div class="task">
+
+    <h1 mat-dialog-title>Add Task</h1>
+    <hr>
+    <form>
+    <div mat-dialog-content >
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Cartegory</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>Status</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>Task Title</mat-label>
+            <input matInput>
+          </mat-form-field>
+        
+          <mat-form-field appearance="fill" class="input">
+            <mat-label>Textarea</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions>
+    <button mat-button mat-dialog-close class="button-cancel">Close</button>
+    <button mat-button class="button-add" type="submit" >Add Task</button>
+    </div>
+
+    </form>
+
+    
+
+</div>
+
+

@@ -1,0 +1,21 @@
+
+.task{
+
+    width: 400px;
+}
+
+.input{
+  width: 100%;
+ 
+}
+
+.button-add {
+
+    background-color: grey;
+}
+
+
+.button-cancel {
+
+    background-color:red;
+}
