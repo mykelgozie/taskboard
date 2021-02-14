@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/angularComponent/angular.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <h1>
           Task Board  
-            <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
+            <mat-icon matBadge="{{ arrayTask.length}}" matBadgeColor="warn">home</mat-icon>
               <!-- Include text description of the icon's meaning for screen-readers -->
               <span class="cdk-visually-hidden">
                 Example with a home icon with overlaid badge showing the number 15
@@ -37,61 +37,34 @@
 
 <diV>
 </diV>
+<div *ngIf = "loading "  class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
 
-<div class="tasks">
-  <div class="box">
-      <div class="header">
-        <h3>
-          Title    
-          <span class="icon "><fa-icon [icon]="delete"></fa-icon> </span>
-         </h3>
-     </div>
-      <mat-divider></mat-divider>
-      <div class="body"> 
-       <small>Description</small>
-      </div>
-  </div>
-  <div class="box">
+<div class="tasks" >
+ 
+  <div class="box "  [ngClass]="{'box-green': task.status === 'Completed'}" *ngFor="let task of arrayTask ">
     <div class="header">
       <h3> 
          <span class="icon">
           <fa-icon [icon]="pin"></fa-icon>
          </span>
-         Title 
-          <span class="btn "><fa-icon [icon]="delete"></fa-icon> </span>
+         {{task.title}}
+         {{task.cartegory}}
+
         </h3> 
       </div>
     <hr>
+    <div>
+      {{ task.status }}
+    </div>
     <div class="body">
-      <span class="icon background-icon "><fa-icon [icon]="tasks"></fa-icon> </span>
-        <small>Description</small>
+  
+        {{task.description}}
       </div>
-  </div>
-  <div class="box">
-   
-    <div class="header"><h3>Title </h3> </div>
-    <hr>
-    <div class="body"> Description </div>
-  </div>
-  <div class="box">
-    <div class="header"><h3>Title </h3> </div>
-    <hr>
-    <div class="body"> Description </div>
-  </div>
-  <div class="box">
-    <div class="header"><h3>Title </h3> </div>
-    <hr>
-    <div class="body"> Description </div>
-  </div>
-  <div class="box">
-    <div class="header"><h3>Title </h3> </div>
-    <hr>
-    <div class="body"> Description </div>
-  </div>
-  <div class="box">
-    <div class="header"><h3>Title </h3> </div>
-    <hr>
-    <div class="body"> Description </div>
+      <div>
+        <button mat-flat-button class="delete">Delete</button>
+      </div>
   </div>
   
 </div>

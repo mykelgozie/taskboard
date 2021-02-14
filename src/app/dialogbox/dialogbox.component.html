@@ -2,25 +2,24 @@
 
     <h1 mat-dialog-title>Add Task</h1>
     <hr>
-    <form>
+    <form   (ngSubmit) = "onSubmit(f)"   #f = "ngForm" >
     <div mat-dialog-content >
         <mat-form-field appearance="fill" class="input">
             <mat-label>Cartegory</mat-label>
             <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+              <mat-option value="cart.Id" *ngFor="let cart of arrayCartegory " >{{ cart.cartegory }}</mat-option>
+           
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill" class="input">
             <mat-label>Status</mat-label>
             <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
+              <mat-option value="one" *ngFor="let status of arrayStatus ">{{ status.status }}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field appearance="fill" class="input">
-            <mat-label>Task Title</mat-label>
-            <input matInput>
+            <mat-label>Task Number</mat-label>
+            <input type="number" matInput>
           </mat-form-field>
         
           <mat-form-field appearance="fill" class="input">
@@ -30,8 +29,8 @@
 
     </div>
     <div mat-dialog-actions>
-    <button mat-button mat-dialog-close class="button-cancel">Close</button>
-    <button mat-button class="button-add" type="submit" >Add Task</button>
+        <button mat-button mat-dialog-close class="button-cancel">Close</button>
+        <button mat-button class="button-add" type="submit" >Add Task</button>
     </div>
 
     </form>

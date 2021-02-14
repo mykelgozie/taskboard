@@ -26,13 +26,25 @@
 }
 .box{
 
-    background-color: lightgreen;
+    background-color: lightgrey;
     width: 200px;
     margin: 40px;
     padding: 10px;
     height: 200px;
-    position: relative;
+    font-style: italic;
+
+
   
+}
+
+.stats{
+
+    text-align: center;
+    margin-bottom: 10px;
+}
+.header h2{
+
+    width: 200px;
 }
 
 .box-pink {
@@ -64,14 +76,7 @@
 }
 
 
-.background-icon {
 
-    position: absolute;
-    font-size: 100px;
-   opacity: 0.2;
-   left: 60px;
-   top: 80px;
-}
 
 .pagination {
 
@@ -96,4 +101,20 @@
   .pagination a:hover:not(.active) {
     background-color: #ddd;
     border-radius: 5px;
+  }
+
+  .delete {
+
+    background-color: lightcyan;
+    margin-top:70px;
+    margin-left: 60px;
+ 
+  
+  }
+
+  .spinner {
+
+   
+    display: flex;
+    justify-content: center;
   }
