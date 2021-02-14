@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class DialogboxComponent implements OnInit {
 
   allCartegory :{} = {};
   arrayCartegory :any  = [];
+  error = "" ;
+  errInfo  =""; 
 
   constructor(private http : HttpClient) {
 
@@ -49,8 +52,44 @@ export class DialogboxComponent implements OnInit {
   onSubmit(form :NgForm){
      
 
-    console.log(form);
-    console.log("heyeyey")
+
+    console.log(form.value.cartegory);
+    console.log(form.value.status);
+    console.log(form.value.description);
+    console.log(form.value.number);
+
+
+    this.http.post<any>("http://localhost:36152/api/Tasks", {
+      title : form.value.number, 
+      description : form.value.description, 
+      status:  form.value.status, 
+      cartegory: form.value.cartegory
+    }).subscribe(result =>{
+
+        console.log(result.statusCode);
+
+   
+        this.errInfo = "New Task Added"; 
+        setTimeout(()=>{
+          this.errInfo= ""
+    
+        }, 3000)
+        
+    }, error => {
+
+     
+    this.error = error.message;
+    this.errInfo = error.statusText; 
+    setTimeout(()=>{
+      this.errInfo= ""
+
+    }, 3000)
+    
+
+     
+    })
+
+
 
   }
 

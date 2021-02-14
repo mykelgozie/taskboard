@@ -25,6 +25,8 @@ export class AppComponent {
   arrayTask :any = [];
   allStatus :{} = {};
   arrayStatus :any  = [];
+  errInfo ="";
+  error ="";
   
   constructor(public dialog: MatDialog, private http : HttpClient) {
 
@@ -38,26 +40,53 @@ export class AppComponent {
       Object.entries(result).forEach(
         ([key, value]) =>   this.arrayTask.push(value)
       );
-     
 
-
-  
       this.loading = false;
-  
-    
-  
-      
+ 
     });
 
 
 
   }
-  
+
+  DeleteTask(id:any){
+
+    var answer =  confirm("Are Sure You Want To Delete this Task");
+
+    if(answer){
+
+      console.log(id);
+
+      this.http.delete<any>("http://localhost:36152/api/Tasks/"+ id).subscribe(result =>{
+
+        console.log(result.statusCode);
+   
+        this.errInfo = " Task Added Deleted"; 
+        setTimeout(()=>{
+          this.errInfo= ""
+    
+        }, 3000)
+        
+    }, error => {
+
      
- 
+    this.error = error.message;
+    this.errInfo = error.statusText; 
+    setTimeout(()=>{
+      this.errInfo= ""
 
+    }, 3000)
+    
 
-  
+     
+    })
+
+      
+    }
+     alert(answer);
+    
+  }
+
   openDialog() {
     this.dialog.open(DialogboxComponent);
   }

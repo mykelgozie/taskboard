@@ -43,7 +43,7 @@
 
 <div class="tasks" >
  
-  <div class="box "  [ngClass]="{'box-green': task.status === 'Completed'}" *ngFor="let task of arrayTask ">
+  <div class="box "  *ngFor="let task of arrayTask ">
     <div class="header">
       <h3> 
          <span class="icon">
@@ -63,7 +63,8 @@
         {{task.description}}
       </div>
       <div>
-        <button mat-flat-button class="delete">Delete</button>
+    
+        <button mat-flat-button (click) = 'DeleteTask(task.id)' class="delete">Delete</button>
       </div>
   </div>
   
