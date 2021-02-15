@@ -9,12 +9,17 @@ import { MaterialModule } from 'src/angularComponent/angular.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import  { NgxPaginationModule } from 'ngx-pagination'
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogboxComponent
+    DialogboxComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MaterialModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

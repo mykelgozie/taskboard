@@ -37,27 +37,33 @@
 
 <diV>
 </diV>
+
+<div *ngIf ="errInfo.length > 0" class="alert">
+     
+  {{   errInfo }}
+</div>
 <div *ngIf = "loading "  class="spinner">
   <mat-spinner></mat-spinner>
 </div>
 
 <div class="tasks" >
  
-  <div class="box "  *ngFor="let task of arrayTask ">
+  <div class="box "  *ngFor="let task of arrayTask  | paginate: { itemsPerPage: 8, currentPage: p } ">
     <div class="header">
       <h3> 
          <span class="icon">
           <fa-icon [icon]="pin"></fa-icon>
          </span>
          {{task.title}}
+         <hr>
          {{task.cartegory}}
 
         </h3> 
       </div>
     <hr>
-    <div>
+    <!-- <div>
       {{ task.status }}
-    </div>
+    </div> -->
     <div class="body">
   
         {{task.description}}
@@ -72,11 +78,7 @@
 
 <div class="pagination">
 
-  <a href="#">1</a>
-  <a href="#" class="active">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </div>
+

@@ -106,7 +106,7 @@
   .delete {
 
     background-color: lightcyan;
-    margin-top:70px;
+    margin-top:50px;
     margin-left: 60px;
  
   
@@ -117,4 +117,12 @@
    
     display: flex;
     justify-content: center;
+  }
+
+  .alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
   }

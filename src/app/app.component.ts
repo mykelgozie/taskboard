@@ -5,6 +5,7 @@ import { faThumbtack } from '@fortawesome/free-solid-svg-icons'
 import { faTasks } from '@fortawesome/free-solid-svg-icons'
 import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -27,9 +28,18 @@ export class AppComponent {
   arrayStatus :any  = [];
   errInfo ="";
   error ="";
+  pageOfItems: Array<any> = [] ;
+  items = [];
+  collection :any= [];
+  p: number = 1;
   
   constructor(public dialog: MatDialog, private http : HttpClient) {
+      for (let index = 0; index < 100; index++) {
 
+        let obje :{} = {'Name': `User Name${index}`, 'id': `UID${index}` }
+        this.collection.push(obje);
+        
+      }
   
 
 
