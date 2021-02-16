@@ -41,8 +41,6 @@ export class AppComponent {
         
       }
   
-
-
     this.http.get('http://localhost:36152/api/Tasks').subscribe(result => {
     
       this.allTasks = result;
@@ -54,9 +52,6 @@ export class AppComponent {
       this.loading = false;
  
     });
-
-
-
   }
 
   DeleteTask(id:any){
@@ -65,17 +60,16 @@ export class AppComponent {
 
     if(answer){
 
-      console.log(id);
-
       this.http.delete<any>("http://localhost:36152/api/Tasks/"+ id).subscribe(result =>{
-
-        console.log(result.statusCode);
    
         this.errInfo = " Task Added Deleted"; 
         setTimeout(()=>{
           this.errInfo= ""
+          this.reloadPage();
     
         }, 3000)
+
+      
         
     }, error => {
 
@@ -86,20 +80,15 @@ export class AppComponent {
       this.errInfo= ""
 
     }, 3000)
-    
-
-     
-    })
-
       
-    }
-     alert(answer);
-    
+    })
+  
+    }    
   }
-
+  reloadPage() {
+    window.location.reload();
+ }
   openDialog() {
     this.dialog.open(DialogboxComponent);
   }
-
-  
 }

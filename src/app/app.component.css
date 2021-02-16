@@ -126,3 +126,28 @@
     margin-bottom: 15px;
     text-align: center;
   }
+
+  .body{
+
+    background-color: lightgoldenrodyellow;
+    height: 90px;
+  }
+
+  .del-icon{
+
+    height: 0px;
+    width: 0px;
+     
+  }
+
+
+  .pagination a{
+
+    background-color: grey;
+  }
+
+
+  .displayError{
+
+    text-align: center;
+  }

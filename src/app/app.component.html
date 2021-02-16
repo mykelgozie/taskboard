@@ -1,7 +1,7 @@
 <mat-toolbar>
  <div class="tab">
     <div>
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <button mat-icon-button  aria-label="Example icon-button with a menu">
         <h1>
           Task Board  
             <mat-icon matBadge="{{ arrayTask.length}}" matBadgeColor="warn">home</mat-icon>
@@ -16,20 +16,7 @@
       <button mat-flat-button color="primary" (click)="openDialog()"> + Add</button>
     </div>  
  </div>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-  </mat-menu>
+ 
   
   <span class="example-spacer"></span>
  
@@ -41,6 +28,12 @@
 <div *ngIf ="errInfo.length > 0" class="alert">
      
   {{   errInfo }}
+</div>
+<div class="displayError" *ngIf ="arrayTask.length < 1">
+  <h2>
+    No Task On Display 
+  </h2>
+  
 </div>
 <div *ngIf = "loading "  class="spinner">
   <mat-spinner></mat-spinner>
@@ -54,9 +47,12 @@
          <span class="icon">
           <fa-icon [icon]="pin"></fa-icon>
          </span>
-         {{task.title}}
+         {{task.title}}  
+         <button mat-fab  class="del-icon"   (click) = 'DeleteTask(task.id)' aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
          <hr>
-         {{task.cartegory}}
+       Cartegory:    {{task.cartegory}}
 
         </h3> 
       </div>
@@ -64,13 +60,13 @@
     <!-- <div>
       {{ task.status }}
     </div> -->
-    <div class="body">
+     <div class="body">
   
         {{task.description}}
       </div>
       <div>
     
-        <button mat-flat-button (click) = 'DeleteTask(task.id)' class="delete">Delete</button>
+        <!-- <button mat-flat-button (click) = 'DeleteTask(task.id)' class="delete">Delete</button> -->
       </div>
   </div>
   

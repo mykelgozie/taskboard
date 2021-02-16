@@ -33,9 +33,6 @@ export class DialogboxComponent implements OnInit {
 
      });
 
-
-
-
        http.get("http://localhost:36152/api/Status").subscribe( result => {
 
         this.allStatus = result;
@@ -51,14 +48,6 @@ export class DialogboxComponent implements OnInit {
 
   onSubmit(form :NgForm){
      
-
-
-    console.log(form.value.cartegory);
-    console.log(form.value.status);
-    console.log(form.value.description);
-    console.log(form.value.number);
-
-
     this.http.post<any>("http://localhost:36152/api/Tasks", {
       title : form.value.number, 
       description : form.value.description, 
@@ -67,13 +56,21 @@ export class DialogboxComponent implements OnInit {
     }).subscribe(result =>{
 
         console.log(result.statusCode);
-
-   
         this.errInfo = "New Task Added"; 
         setTimeout(()=>{
           this.errInfo= ""
+          this.reloadPage();
+          
     
         }, 3000)
+
+        
+    form.value.cartegory = "";
+    form.value.status = "";
+    form.value.description ="";
+    form.value.number = "";
+
+
         
     }, error => {
 
@@ -92,6 +89,9 @@ export class DialogboxComponent implements OnInit {
 
 
   }
+  reloadPage() {
+    window.location.reload();
+ }
 
   ngOnInit(): void {
   }
