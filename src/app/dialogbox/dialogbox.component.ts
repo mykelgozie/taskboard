@@ -65,10 +65,6 @@ export class DialogboxComponent implements OnInit {
         }, 3000)
 
         
-    form.value.cartegory = "";
-    form.value.status = "";
-    form.value.description ="";
-    form.value.number = "";
 
 
         
